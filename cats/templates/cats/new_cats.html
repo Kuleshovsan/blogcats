@@ -1,0 +1,15 @@
+{% extends 'cats/base.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Добавить описание</p>
+    <form action="{% url 'cats:new_cats' %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name='submit'>добавить описание</button>
+    </form>
+</body>
+{% endblock content %}

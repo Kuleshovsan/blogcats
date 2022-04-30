@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<p>
+    <a href="{% url 'cats:index' %}">Блог о котах</a> -
+    <a href="{% url 'cats:cats' %}">Коты</a> -
+    {% if user.is_authenticated %}
+        Hello, {{ user.username }}.
+        <a href="{% url 'users:logout' %}">выход</a>
+    {% else %}
+        <a href="{% url 'users:register' %}">регистрация</a> -
+        <a href="{% url 'users:login' %}">вход</a>
+    {% endif %}
+</p>
+{% block content %}{% endblock content %}
+</html>

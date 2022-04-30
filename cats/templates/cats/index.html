@@ -1,0 +1,14 @@
+{% extends 'cats/base.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Это блог про котов.</h1>
+    <p>Здесь можно добавлять, редактировать, удалять своих котов!</p>
+    <p>
+        <a href="{% url 'cats:cats' %}">Коты</a>
+    </p>
+</body>
+{% endblock content %}

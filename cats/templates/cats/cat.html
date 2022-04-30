@@ -1,0 +1,37 @@
+{% extends 'cats/base.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Имя: {{ cat }}</p>
+    <p>Описание:</p>
+    {% if cat %}
+        <div>
+            <p>имя: {{ cat.name_c }}</p>
+            <p>порода: {{ cat.breed_c }}</p>
+            <p>тип шерсти: {{ cat.type_of_wool_c }}</p>
+            <p>возраст: {{ cat.age_c }}</p>
+        </div>
+        <div>
+            <a href="{% url 'cats:edit_cats' cat.id %}">изменить описание</a>
+        </div>
+        <div>
+            <a href="{% url 'cats:del_cats' cat.id %}">удалить кота</a>
+        </div>
+        <div>
+            <a href="{% url 'cats:new_cats' %}">Добавить кота</a>
+        </div>
+    {% else %}
+        <div>
+            <a href="{% url 'cats:new_cats' %}">добавить описание</a>
+        </div>
+
+
+        <ul>
+            <li>Описание кота не добавлено</li>
+        </ul>
+    {% endif %}
+</body>
+{% endblock content %}

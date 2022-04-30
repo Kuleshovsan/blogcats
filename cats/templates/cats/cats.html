@@ -1,0 +1,20 @@
+{% extends 'cats/base.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Коты</p>
+<ul>
+    {% for cat in cats %}
+        <li>
+            <a href="{% url 'cats:cat' cat.id %}">{{ cat }}</a>
+        </li>
+    {% empty %}
+        <li>Коты не добавлены.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'cats:new_cats' %}">Добавить кота</a>
+</body>
+{% endblock content %}

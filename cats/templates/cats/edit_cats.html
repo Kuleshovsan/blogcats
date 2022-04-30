@@ -1,0 +1,10 @@
+{% extends "cats/base.html" %}
+{% block content %}
+    <p><a href="{% url 'cats:cat' cats.id %}">{{ cat }}</a></p>
+    <p>Изменение описания</p>
+    <form action="{% url 'cats:edit_cats' cats_id=cats.id %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button name="submit">сохранить изменения</button>
+    </form>
+{% endblock content %}
